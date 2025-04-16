@@ -9,18 +9,20 @@
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
 
-    <title>Museu Digital</title>
+    <title>NEO MUSEUM</title>
   </head>
   <body class="bg-black text-white">
+    <div class="cursor-circle"></div>
     <nav
       class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary px-4"
     >
       <a
         class="navbar-brand fs-4"
         href="#"
-        onclick="carregarPagina('index.html')"
+        onclick="carregarPagina('home.html')"
         >NEO MUSEUM</a
       >
+
       <button
         class="navbar-toggler"
         type="button"
@@ -49,105 +51,100 @@
             <a
               class="nav-link"
               href="#"
-              onclick="carregarPagina('contato.html')"
-              >Contato</a
+              onclick="carregarPagina('referencias.html')"
+              >Referências</a
             >
           </li>
         </ul>
       </div>
     </nav>
-    <main class="container py-5" id="conteudo">
-      <header
-        class="hero position-relative text-center text-white d-flex flex-column justify-content-center align-items-center"
-      >
-        <div class="carousel-background">
-          <div class="carousel-track">
-            <img src="assets/img/Noite estrelada.jpg" alt="Obra 1" />
-            <img src="assets/img/Os Girassóis.jpeg" alt="Obra 2" />
-            <img src="assets/img/Horizon.jpg" alt="Obra 3" />
-            <img src="img4.jpg" alt="Obra 4" />
-            <img src="img5.jpg" alt="Obra 5" />
-          </div>
-        </div>
+    <main class="container py-5" id="conteudo"></main>
+    <div
+      class="barra-dir"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <p class="texto-voltar">voltar ao topo</p>
+    </div>
+    
 
-        <!-- Conteúdo por cima -->
-        <div class="hero-content position-relative">
-          <h1 class="display-3 fw-bold titulo-gradiente">Museu Digital</h1>
-          <p class="lead">
-            Explore as obras mais icônicas obras em um ambiente imersivo.
-          </p>
+    <footer class="footer-lusion container-fluid px-5 py-5 text-white">
+      <div class="row">
+        <div class="col-md-4">
+          <p class="fw-bold">NEO MUSEUM</p>
+          <p>Rua da Arte, 123<br />Joinville, SC - Brasil</p>
         </div>
-      </header>
-      <section class="container my-5 text-white text-center">
-        <h2 class="mb-4">Explore por Estilo</h2>
-        <div class="row g-4">
-          
-          <div class="art-container col-12" onclick="carregarPagina('impressionismo.html')">
-            <h5 class="art-title">Impressionismo</h5>
-            <img src="/assets/img/Arte impressionismo.jpg" alt="Impressionismo" class="img-estilo">
-          </div>
-          
-          <div class="art-container col-12" onclick="carregarPagina('surrealismo.html')">
-            <h5 class="art-title">Surrealismo</h5>
-            <img src="/assets/img/Arte Surrealismo.jpg" alt="Surrealismo" class="img-estilo">
-          </div>
-          
-          <div class="art-container col-12" onclick="carregarPagina('pos-impressionismo.html')">
-            <h5 class="art-title">Pós-impressionismo</h5>
-            <img src="/assets/img/Arte pós-impressionismo.avif" alt="Pós-impressionismo" class="img-estilo">
-          </div>
-          
-          <div class="art-container col-12" onclick="carregarPagina('arte-moderna.html')">
-            <h5 class="art-title">Arte Moderna</h5>
-            <img src="/assets/img/Arte arte-moderna.jpg" alt="Arte Moderna" class="img-estilo">
-          </div>
-          
-      
+        <div class="col-md-4">
+          <p class="mb-1">contato@neomuseum.com</p>
+          <p>Instagram / Twitter / LinkedIn</p>
         </div>
-      </section>
-      <section class="container my-5 text-white">
-        
-        <div class="row align-items-center mb-5">
-          <div class="col-md-6">
-            <h3 class="mb-3">Missão</h3>
-            <p>Celebrar a diversidade artística global, oferecendo uma experiência digital imersiva que conecta pessoas à arte de diferentes épocas, estilos e culturas ao redor do mundo.</p>
-          </div>
-          <div class="col-md-6">
-            <img src="assets/img/Img missao.png" alt="Missão" class="img-fluid rounded">
-          </div>
+        <div class="col-md-4">
+          <p>©2025 NEO MUSEUM</p>
+          <p>Feito para inspirar</p>
         </div>
-      
-        <div class="row align-items-center mb-5 flex-md-row-reverse">
-          <div class="col-md-6">
-            <h3 class="mb-3">Visão</h3>
-            <p>Ser referência em curadoria digital de arte internacional, promovendo o acesso democrático ao conhecimento artístico e inspirando novas conexões culturais.</p>
-          </div>
-          <div class="col-md-6">
-            <img src="assets/img/Img visao.avif" alt="Visão" class="img-fluid rounded">
-          </div>
+      </div>
+    </footer>
+
+    <div class="overlay-exposicao" id="overlayExposicao">
+      <div class="overlay-conteudo">
+        <h2 id="overlayTitulo">Título da Obra</h2>
+        <p><strong>Autor:</strong> <span id="overlayAutor">Nome</span></p>
+        <p><strong>Ano:</strong> <span id="overlayAno">Ano</span></p>
+        <p id="overlayDescricao">Descrição da obra será exibida aqui.</p>
+        <div class="barra-dir" onclick="fecharOverlay()">
+          <p class="texto-voltar">Voltar</p>
         </div>
-      
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <h3 class="mb-3">Valores</h3>
-            <ul>
-              <li>Universalidade da arte</li>
-              <li>Respeito à diversidade cultural</li>
-              <li>Inovação digital</li>
-              <li>Acessibilidade e inclusão</li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <img src="assets/img/img impressionismo.avif" alt="Valores" class="img-fluid rounded">
-          </div>
-        </div>
-      </section>      
-      
-    </main>
+      </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@latest/bundled/lenis.min.js"></script>
 
     <script src="/assets/js/scripts.js"></script>
+    <script>
+      window.onload = () => {
+        carregarPagina("home.html");
+      };
+      const circle = document.querySelector(".cursor-circle");
+
+      if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+        circle.style.display = "none";
+      } else {
+        let mouseX = 0,
+          mouseY = 0;
+        let currentX = 0,
+          currentY = 0;
+
+        document.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        });
+
+        function animateCircle() {
+          currentX += (mouseX - currentX) * 0.2;
+          currentY += (mouseY - currentY) * 0.2;
+
+          circle.style.left = currentX - circle.offsetWidth / 2 + "px";
+          circle.style.top = currentY - circle.offsetHeight / 2 + "px";
+
+          requestAnimationFrame(animateCircle);
+        }
+
+        animateCircle();
+      }
+
+      function abrirOverlay(titulo, autor, ano, descricao) {
+        document.getElementById("overlayTitulo").textContent = titulo;
+        document.getElementById("overlayAutor").textContent = autor;
+        document.getElementById("overlayAno").textContent = ano;
+        document.getElementById("overlayDescricao").textContent = descricao;
+
+        document.getElementById("overlayExposicao").style.display = "flex";
+      }
+
+      function fecharOverlay() {
+        document.getElementById("overlayExposicao").style.display = "none";
+      }
+    </script>
   </body>
 </html>
