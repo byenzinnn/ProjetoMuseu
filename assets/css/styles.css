@@ -172,7 +172,8 @@ nav {
 }
 
 .art-container:hover .img-estilo {
-  height: 40vh;
+  height: 40dvh;
+  transition: all .6s ease-in-out;
 }
 
 .art-title {
