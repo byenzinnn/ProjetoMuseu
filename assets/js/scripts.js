@@ -24,6 +24,10 @@ function carregarPagina(pagina) {
       document.getElementById('conteudo').innerHTML = html;
       iniciarFadeIn();
       aplicarHoverEffects();
+      if (pagina === 'exposicoes.html') {
+        aplicarTiltExposicoes();
+      }
+      
     })
     .catch(() => {
       document.getElementById('conteudo').innerHTML = 'Erro ao carregar a página.';
@@ -45,6 +49,36 @@ function aplicarHoverEffects() {
     });
   });
 }
+
+function aplicarTiltExposicoes() {
+  document.querySelectorAll('.exposicao').forEach(card => {
+    card.classList.add('tilt-transition');
+    card.addEventListener('mousemove', onCardMouseMove);
+    card.addEventListener('mouseleave', onCardMouseLeave);
+  });
+}
+
+function onCardMouseMove(e) {
+  this.classList.remove('tilt-transition');
+  const rect = this.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const normX = (x / rect.width)  * 2 - 1;
+  const normY = (y / rect.height) * 2 - 1;
+  const maxTilt = 2;
+
+  const rotateY = -normX * maxTilt;
+  const rotateX =  normY * maxTilt;
+
+  this.style.transform = 
+    `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+}
+
+function onCardMouseLeave() {
+  this.classList.add('tilt-transition');
+  this.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg)';
+}
+
 
 const lenis = new Lenis({ duration: 10, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
 function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }

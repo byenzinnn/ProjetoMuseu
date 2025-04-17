@@ -306,6 +306,12 @@ section ul {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.exposicao.tilt-transition {
+  transition: all 0.2s ease;
 }
 
 .exposicao h3 {
@@ -427,3 +433,4 @@ section ul {
   font-size: 1.8rem;
   color: var(--cor-texto-escuro);
 }
+
